@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = new TextView(this);
         tv.setText( HelloJni() );
         setContentView(tv);
+        TextView tv2 = new TextView(this);
+        Dog lab = new Dog();
+        tv2.setText(Integer.toString(changeDogAge(3, lab).age));
+        setContentView(tv2);
+
     }
 
 
@@ -59,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public native String HelloJni();
+    public native Dog changeDogAge(int age, Dog dog);
+
     static
     {
         System.loadLibrary("HelloJni");
