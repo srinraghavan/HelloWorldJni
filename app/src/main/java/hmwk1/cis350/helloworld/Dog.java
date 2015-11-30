@@ -5,7 +5,7 @@ package hmwk1.cis350.helloworld;
  */
 public class Dog {
     public String name;
-    public int age;
+    public int age = 4;
 
 
 }

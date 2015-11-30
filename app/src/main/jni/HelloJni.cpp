@@ -20,7 +20,15 @@ JNIEXPORT jstring JNICALL Java_hmwk1_cis350_helloworld_MainActivity_HelloJni
     //return print();
     return env->NewStringUTF("Hello from native code! lol");
 
-
 }
 
+JNIEXPORT jint JNICALL Java_hmwk1_cis350_helloworld_MainActivity_changeDogAge
+        (JNIEnv * env, jobject object, jint age, jobject objectDog){
+    jclass dogClass =  env->GetObjectClass(objectDog);
+    jfieldID dogFidNumber = env->GetFieldID(dogClass, "age", "I");
+    if (NULL == dogFidNumber) return 200;
+    int number = env->GetIntField(objectDog,dogFidNumber);
+    int number2 = number + 1;
+    return number2;
 
+}
