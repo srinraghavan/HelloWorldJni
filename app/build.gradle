@@ -14,6 +14,7 @@ android {
         ndk {
             moduleName "HelloJni"
         }
+        multiDexEnabled true
     }
     buildTypes {
         release {
